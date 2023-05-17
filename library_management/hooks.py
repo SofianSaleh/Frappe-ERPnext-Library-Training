@@ -2,7 +2,7 @@ from . import __version__ as app_version
 
 app_name = "library_management"
 app_title = "Library Management"
-app_publisher = "Dofian"
+app_publisher = "Sofian"
 app_description = "Library Management App"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
@@ -188,3 +188,6 @@ user_data_fields = [
 #	"library_management.auth.validate"
 # ]
 
+fixtures= [
+    "Custom Field"
+]

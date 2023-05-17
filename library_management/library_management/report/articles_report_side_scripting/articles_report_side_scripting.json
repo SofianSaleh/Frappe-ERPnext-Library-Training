@@ -1,0 +1,34 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2023-05-10 14:06:47.763668",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Sofian App Development",
+ "modified": "2023-05-10 14:06:47.763668",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Articles Report Side Scripting",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "",
+ "ref_doctype": "Article Library",
+ "report_name": "Articles Report Side Scripting",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Library Member"
+  },
+  {
+   "role": "Librarian"
+  }
+ ]
+}
