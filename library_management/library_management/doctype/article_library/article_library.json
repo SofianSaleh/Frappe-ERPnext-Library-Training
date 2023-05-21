@@ -2,7 +2,6 @@
  "actions": [],
  "allow_guest_to_view": 1,
  "allow_rename": 1,
- "autoname": "field:article_name",
  "creation": "2023-05-09 12:47:08.284467",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -24,9 +23,7 @@
   {
    "fieldname": "article_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Article Name",
-   "reqd": 1,
    "unique": 1
   },
   {
@@ -37,9 +34,7 @@
   {
    "fieldname": "author",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Author",
-   "reqd": 1
+   "label": "Author"
   },
   {
    "fieldname": "description",
@@ -49,8 +44,10 @@
   {
    "fieldname": "isbn",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "ISBN",
-   "permlevel": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "status",
@@ -91,11 +88,12 @@
  "index_web_pages_for_search": 1,
  "is_published_field": "published",
  "links": [],
- "modified": "2023-05-11 13:09:43.975844",
+ "modified": "2023-05-21 13:41:06.938873",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Article Library",
  "name_case": "Title Case",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -135,5 +133,6 @@
  "quick_entry": 1,
  "route": "articles_library",
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }
