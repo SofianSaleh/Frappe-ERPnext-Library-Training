@@ -26,13 +26,14 @@ def get_article_by_isbn(isbn):
 
 @frappe.whitelist()
 def get_article_by_date(creation):
-    print(creation)
+    print(now())
+    x=now()
     article  = frappe.get_list('Article Library',
                                 filters=[
                                     ["creation",">=", creation]
                                     ], 
                                fields=['article_name', 'author', 'isbn', 'publisher', 'status', 'image', 'description', 'owner', 'creation'])
-    return article
+    return {"article":article, "date": x}
 
 
 @frappe.whitelist()
