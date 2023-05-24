@@ -1,14 +1,38 @@
 import frappe
 import requests
+from frappe.utils import now
+
+
+
+
+@frappe.whitelist()
+def get_all_articles():
+    print('hi')
+    articles = frappe.db.get_list('Article Library', 
+                                  fields=[
+                                      'article_name','author', 'description','isbn','status','publisher','image'
+                                      ]
+                                      )
+    print(articles)
+    return articles
 
 
 @frappe.whitelist()
 def get_article_by_isbn(isbn):
     article  = frappe.get_list('Article Library',
-                               filters={'isbn': isbn}, 
+                               filters={'isbn':isbn}, 
                                fields=['article_name', 'author', 'isbn', 'publisher', 'status', 'image', 'description', 'owner', 'creation'])
     return article
 
+@frappe.whitelist()
+def get_article_by_date(creation):
+    print(creation)
+    article  = frappe.get_list('Article Library',
+                                filters=[
+                                    ["creation",">=", creation]
+                                    ], 
+                               fields=['article_name', 'author', 'isbn', 'publisher', 'status', 'image', 'description', 'owner', 'creation'])
+    return article
 
 
 @frappe.whitelist()
@@ -45,4 +69,4 @@ def populate_article_data (isbn):
         }
         return data
     except Exception as e:
-        frappe.msgprint(e)
+        frappe.throw(e)
