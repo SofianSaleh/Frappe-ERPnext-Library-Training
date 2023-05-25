@@ -6,6 +6,19 @@ from frappe.model.document import Document
 from frappe.model.docstatus import DocStatus
 
 class LibraryMembership(Document):
+	
+
+	def before_save(self):
+		print(frappe.get_doc({
+			"doctype": 'Library Member',
+			"full_name": self.full_name
+		})	)
+		# frappe.msgprint(frappe.get_doc({
+		# 	"doctype": 'Library Member',
+		# 	"full_name": self.full_name
+		# }))
+		
+
 	def before_submit(self):
 		exists = frappe.db.exists(
 			"Library Membership",

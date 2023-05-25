@@ -14,12 +14,13 @@ frappe.ui.form.on('Article Library', {
 					isbn: frm.doc.isbn,
 				},
 				callback: function(r){
-					console.log(r.message)
+					console.log(r.message,'hi')
 					let keys = Object.keys(r.message)
 
 					keys.forEach((key)=>{
 						frm.set_value(key,r.message[key])
 						frm.refresh_field(key)
+						console.log(key)
 					})
 				}
 			})
