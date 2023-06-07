@@ -34,7 +34,7 @@ class LibraryTransaction(Document):
 			frappe.throw('Article cannot be returned without being issued first')
 
 	def validate_maximum_limit(self):
-		max_articles = frappe.db.get.get_single_value('Library_settings','max_articles')
+		max_articles = frappe.db.get_single_value('Library_settings','max_articles')
 		count = frappe.db.count('Library Transactions',{'library_member': self.library_member, 'type':"Issue", 'docstatus': DocStatus.submitted()})
 	
 	def validate_membership(self):
