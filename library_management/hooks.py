@@ -44,7 +44,7 @@ app_license = "MIT"
 
 # website user home page (by Role)
 # role_home_page = {
-#	"Role": "home_page"
+# 	"Role": "home_page"
 # }
 
 # Generators
@@ -76,11 +76,11 @@ app_license = "MIT"
 # Permissions evaluated in scripted ways
 
 # permission_query_conditions = {
-#	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
+# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
 # }
 #
 # has_permission = {
-#	"Event": "frappe.desk.doctype.event.event.has_permission",
+# 	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 
 # DocType Class
@@ -88,50 +88,50 @@ app_license = "MIT"
 # Override standard doctype classes
 
 # override_doctype_class = {
-#	"ToDo": "custom_app.overrides.CustomToDo"
+# 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
 
 # Document Events
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+    "Payment Entry": {"on_submit": "library_management.events.payment_entry.on_submit"}
+    # 	"*": {
+    # 		"on_update": "method",
+    # 		"on_cancel": "method",
+    # 		"on_trash": "method"
+    # 	}
+}
 
 # Scheduled Tasks
 # ---------------
 
-scheduler_events = {
-    
-	# "cron":{
-    #     "* * * * *":[
-	# 		"library_management.library_management.doctype.api.article_library_api.test_func"
-	# 	]
-	# }
-    
+# scheduler_events = {
+
+# "cron":{
+#     "* * * * *":[
+# 		"library_management.library_management.doctype.api.article_library_api.test_func"
+# 	]
+# }
 
 
-	# "all": [
-	# 	"library_management.library_management.doctype.api.article_library_api.test_func"
-	# ],
-	# "daily": [
-	# 	"library_management.tasks.daily"
-	# ],
-	# "hourly": [
-	# 	"library_management.tasks.hourly"
-	# ],
-	# "weekly": [
-	# 	"library_management.tasks.weekly"
-	# ]
-	# "monthly": [
-	# 	"library_management.tasks.monthly"
-	# ]
-}
+# "all": [
+# 	"library_management.library_management.doctype.api.article_library_api.test_func"
+# ],
+# "daily": [
+# 	"library_management.tasks.daily"
+# ],
+# "hourly": [
+# 	"library_management.tasks.hourly"
+# ],
+# "weekly": [
+# 	"library_management.tasks.weekly"
+# ]
+# "monthly": [
+# 	"library_management.tasks.monthly"
+# ]
+# }
 
 # Testing
 # -------
@@ -142,14 +142,14 @@ scheduler_events = {
 # ------------------------------
 #
 # override_whitelisted_methods = {
-#	"frappe.desk.doctype.event.event.get_events": "library_management.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "library_management.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-#	"Task": "library_management.task.get_dashboard_data"
+# 	"Task": "library_management.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
@@ -170,33 +170,49 @@ scheduler_events = {
 # --------------------
 
 user_data_fields = [
-	{
-		"doctype": "{doctype_1}",
-		"filter_by": "{filter_by}",
-		"redact_fields": ["{field_1}", "{field_2}"],
-		"partial": 1,
-	},
-	{
-		"doctype": "{doctype_2}",
-		"filter_by": "{filter_by}",
-		"partial": 1,
-	},
-	{
-		"doctype": "{doctype_3}",
-		"strict": False,
-	},
-	{
-		"doctype": "{doctype_4}"
-	}
+    {
+        "doctype": "{doctype_1}",
+        "filter_by": "{filter_by}",
+        "redact_fields": ["{field_1}", "{field_2}"],
+        "partial": 1,
+    },
+    {
+        "doctype": "{doctype_2}",
+        "filter_by": "{filter_by}",
+        "partial": 1,
+    },
+    {
+        "doctype": "{doctype_3}",
+        "strict": False,
+    },
+    {"doctype": "{doctype_4}"},
 ]
 
 # Authentication and authorization
 # --------------------------------
 
 # auth_hooks = [
-#	"library_management.auth.validate"
+# 	"library_management.auth.validate"
 # ]
 
-fixtures= [
-    "Custom Field"
+fixtures = [
+    {
+        "dt": "Custom Field",
+        "filters": [
+            [
+                "name",
+                "in",
+                (
+                    # Sales Invoice
+                    "Sales Invoice-custom_lms_library_membership",
+                    "Item-custom_lms_membership_duration",
+                    "Item-custom_membership_settings",
+                    "Item-custom_lms_is_library_membership",
+                    "Item-custom_lms",
+                    "Customer-custom_lms_library_member",
+                    "Customer-custom_lms_is_library_member",
+                ),
+            ]
+        ],
+    }
 ]

@@ -7,7 +7,9 @@
  "engine": "InnoDB",
  "field_order": [
   "loan_period",
-  "maximum_number_of_issued_articles"
+  "maximum_number_of_issued_articles",
+  "customer_info_section",
+  "customer_group"
  ],
  "fields": [
   {
@@ -19,12 +21,25 @@
    "fieldname": "maximum_number_of_issued_articles",
    "fieldtype": "Int",
    "label": "Maximum Number of Issued Articles"
+  },
+  {
+   "fieldname": "customer_info_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Info"
+  },
+  {
+   "fieldname": "customer_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer Group",
+   "options": "Customer Group",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-05-09 21:59:31.452491",
+ "modified": "2024-08-31 11:57:25.183348",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Settings",
@@ -42,5 +57,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

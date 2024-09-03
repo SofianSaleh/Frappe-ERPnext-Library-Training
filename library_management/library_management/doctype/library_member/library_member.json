@@ -1,17 +1,19 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:first_name",
+ "autoname": "LM-.#####",
  "creation": "2023-05-09 19:31:35.666400",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "first_name",
-  "last_name",
-  "full_name",
   "email_address",
+  "full_name",
+  "column_break_7zdoj",
+  "last_name",
   "phone",
+  "territory",
   "amended_from"
  ],
  "fields": [
@@ -20,8 +22,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "First Name",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "fieldname": "last_name",
@@ -38,14 +39,18 @@
    "unique": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "email_address",
    "fieldtype": "Data",
-   "label": "Email Address"
+   "label": "Email Address",
+   "reqd": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "phone",
-   "fieldtype": "Data",
-   "label": "Phone"
+   "fieldtype": "Phone",
+   "label": "Phone",
+   "reqd": 1
   },
   {
    "fieldname": "amended_from",
@@ -55,15 +60,34 @@
    "options": "Library Member",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_7zdoj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "territory",
+   "fieldtype": "Link",
+   "label": "Territory",
+   "options": "Territory",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2023-05-09 20:01:08.107792",
+ "links": [
+  {
+   "link_doctype": "Customer",
+   "link_fieldname": "custom_lms_library_member",
+   "parent_doctype": "Customer"
+  }
+ ],
+ "modified": "2024-08-31 12:05:58.152374",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Member",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -79,7 +103,10 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
 }

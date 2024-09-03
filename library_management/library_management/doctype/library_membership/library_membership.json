@@ -1,20 +1,23 @@
 {
  "actions": [],
- "allow_rename": 1,
+ "autoname": "LMS-.#########",
  "creation": "2023-05-09 19:59:48.388449",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "library_member",
-  "full_name",
   "from_date",
+  "column_break_ttdrq",
+  "membership_type",
+  "full_name",
   "to_date",
   "paid",
   "amended_from"
  ],
  "fields": [
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "library_member",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -30,20 +33,24 @@
    "read_only": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "from_date",
    "fieldtype": "Date",
    "label": "From Date"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "to_date",
    "fieldtype": "Date",
    "label": "To Date"
   },
   {
+   "allow_in_quick_entry": 1,
    "default": "0",
    "fieldname": "paid",
    "fieldtype": "Check",
-   "label": "Paid"
+   "label": "Paid",
+   "read_only": 1
   },
   {
    "fieldname": "amended_from",
@@ -53,15 +60,32 @@
    "options": "Library Membership",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "membership_type",
+   "fieldtype": "Link",
+   "label": "Membership Type",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ttdrq",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2023-05-09 21:15:28.010248",
+ "links": [
+  {
+   "link_doctype": "Sales Invoice",
+   "link_fieldname": "custom_lms_library_membership"
+  }
+ ],
+ "modified": "2024-08-31 12:37:23.439644",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Membership",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -77,7 +101,7 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }
